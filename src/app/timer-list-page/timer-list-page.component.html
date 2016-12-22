@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      MultiChessTimer
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <timer-list-item *ngFor="let value of valueList" [timerValue]="value" (click)="nextWatch()">
+    </timer-list-item>
+  </ion-list>
+
+  <button (click)="nextWatch()" >Next watch</button>
+  <button (click)="reset()">Reset</button>
+</ion-content>

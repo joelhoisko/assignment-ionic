@@ -1,21 +1,26 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+
+import { TimerService } from './timer.service';
+import { TimerListPage } from './timer-list-page/timer-list-page.component';
+import { TimerRoot } from './timer-root/timer-root.component';
+import { TimerListItem } from './timer-list-item/timer-list-item.component';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    TimerRoot,
+    TimerListPage,
+    TimerListItem
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(TimerRoot)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    TimerRoot,
+    TimerListPage,
+    TimerListItem
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [TimerService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
