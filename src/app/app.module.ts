@@ -5,12 +5,16 @@ import { TimerService } from './timer.service';
 import { TimerListPage } from './timer-list-page/timer-list-page.component';
 import { TimerRoot } from './timer-root/timer-root.component';
 import { TimerListItem } from './timer-list-item/timer-list-item.component';
+import { TimerGameOver } from './timer-game-over/timer-game-over.component';
+import { TimerStartPage } from './timer-start-page/timer-start-page.component';
 
 @NgModule({
   declarations: [
     TimerRoot,
     TimerListPage,
-    TimerListItem
+    TimerListItem,
+    TimerGameOver,
+    TimerStartPage
   ],
   imports: [
     IonicModule.forRoot(TimerRoot)
@@ -19,7 +23,9 @@ import { TimerListItem } from './timer-list-item/timer-list-item.component';
   entryComponents: [
     TimerRoot,
     TimerListPage,
-    TimerListItem
+    TimerListItem,
+    TimerGameOver,
+    TimerStartPage
   ],
   providers: [TimerService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

@@ -1,0 +1,13 @@
+<ion-content>
+  <div id="fullDiv">
+    <p id="titleText">Triple Timer!</p>
+    <ion-item id="ionNumber">
+      <ion-label id="label" stacked>Time per timer (seconds)</ion-label>
+      <ion-range min="10" max="120" step="1" snaps="true" pin="true" [(ngModel)]="timerValue">
+        <ion-label range-left>10</ion-label>
+        <ion-label range-right>120</ion-label>
+      </ion-range>
+    </ion-item>
+    <button id="startButton" ion-button (click)="startGame()">Start</button>
+  </div>
+</ion-content>

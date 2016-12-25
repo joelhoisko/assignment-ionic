@@ -1,9 +1,8 @@
-<ion-content padding>
+<ion-content>
 
   <ion-list class="fullList">
     <timer-list-item *ngFor="let value of valueList" [timerValue]="value" (click)="nextWatch()">
     </timer-list-item>
   </ion-list>
 
-  <button (click)="reset()">Reset here</button>
 </ion-content>

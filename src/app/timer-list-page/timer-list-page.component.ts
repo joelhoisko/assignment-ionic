@@ -3,9 +3,11 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Observable } from "rxjs/Rx";
 import { Subscription } from "../../../node_modules/rxjs/Subscription";
+import { AlertController, NavController } from 'ionic-angular';
 
 import { TimerService } from '../timer.service';
-import { TimerListItem } from '../timer-list-item/timer-list-item.component'
+import { TimerListItem } from '../timer-list-item/timer-list-item.component';
+import { TimerGameOver } from '../timer-game-over/timer-game-over.component';
 
 @Component({
   selector: 'timer-list-page',
@@ -22,12 +24,14 @@ export class TimerListPage {
   subscription: Subscription;
 
   constructor(private platform: Platform,
-              private timerService: TimerService) {
+              private timerService: TimerService,
+              private alertCtrl: AlertController,
+              private navCtrl: NavController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      // StatusBar.styleDefault();
+      // Splashscreen.hide();
     });
   }
 
@@ -58,6 +62,7 @@ export class TimerListPage {
     } else {
       this.watchSelector++;
     }
+    this.checkWatch();
   }
 
   checkWatch() {
@@ -80,8 +85,9 @@ export class TimerListPage {
   // i have idea
   ticker(tick: number, oldValue: number, valueIndex: number) {
 
-    if (oldValue - tick <= 50) {
-
+    if (oldValue - tick < 0) {
+      new TimerGameOver(this.alertCtrl, this.platform, this.navCtrl).gameOver();
+      this.subscription.unsubscribe();
     } else {
       this.valueList[valueIndex] = oldValue - tick;
     }

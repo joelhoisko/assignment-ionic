@@ -1,11 +1,14 @@
 timer-list-item {
   ion-item {
-    height: 33%;
+    height: 32%;
   }
   ion-label {
     height: 100%;
   }
   .item-md .item-button {
     height: 100%
+  }
+  #timerButton {
+    font-size: 3em;
   }
 }
